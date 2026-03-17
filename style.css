@@ -67,32 +67,26 @@ section {
 }
 
 /* Grid de Cursos */
-.cursos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
 .curso-card {
     background: #fff;
     border: 1px solid #ddd;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
+    transition: all 0.3s ease; /* Transição mais suave */
 }
 
 .curso-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border-color: #007bff; /* A borda aparece apenas no hover para dar feedback */
 }
 
-.curso-card.destaque {
-    border: 2px solid #007bff;
-}
-
-.curso-card h3 {
-    color: #007bff;
+/* Estilo para quando o botão está enviando */
+button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.8;
 }
 
 /* Imagens */
