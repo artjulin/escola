@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colégio São Cristóvão</title>
+    <title>Colégio São Cristóvão | Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,24 +16,25 @@
     <nav>
         <ul>
             <li><a href="#sobre">Sobre nós</a></li>
-            <li><a href="#cursos">Cursos</a></li>
-            <li><a href="#noticias">Notícias</a></li>
+            <li><a href="fundamental.html">Fundamental 2</a></li>
+            <li><a href="medio.html">Ensino Médio</a></li>
+            <li><a href="tecnico.html">Técnico</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
     </nav>
 
     <section id="sobre">
         <h2>Bem-Vindos ao Colégio São Cristóvão</h2>
-        <p>Nossa escola oferece um ambiente acolhedor e inovador, com professores qualificados que visam o desenvolvimento integral dos alunos.</p>
+        <p>Nossa escola oferece um ambiente acolhedor e inovador, com professores qualificados que visam o desenvolvimento integral dos alunos desde a base até a formação profissional.</p>
         
         <div class="img-container">
-            <img src="escola1.jpg">
+            <img src="https://via.placeholder.com/800x400" alt="Ambiente Escolar">
         </div>
 
         <h3>Nossos diferenciais</h3>
         <ul>
             <li>Ensino personalizado e humano</li>
-            <li>Tecnologia integrada ao aprendizado</li>
+            <li>Tecnologia integrada ao aprendizado (Google for Education)</li>
             <li>Projetos interdisciplinares e extracurriculares</li>
             <li>Foco no desenvolvimento de competências socioemocionais</li>
         </ul>
@@ -41,19 +42,24 @@
 
     <section id="cursos-container">
         <div class="max-width-wrapper">
-            <h2>Nossos Cursos</h2>
+            <h2 style="text-align: center;">Nossos Níveis de Ensino</h2>
             <div class="cursos-grid">
                 <div class="curso-card">
                     <h3>Ensino Fundamental 2</h3>
                     <p>Foco no desenvolvimento do pensamento crítico, autonomia e sólida base acadêmica.</p>
+                    <a href="fundamental.html" class="btn-saiba-mais">Conhecer Segmento →</a>
                 </div>
+
                 <div class="curso-card">
-                    <h3>Ensino Médio</h3>
-                    <p>Preparação de alto desempenho para o ENEM, vestibulares e carreira profissional.</p>
+                    <h3>Ensino Médio Regular</h3>
+                    <p>Preparação de alto desempenho para o ENEM, vestibulares e escolha da carreira profissional.</p>
+                    <a href="medio.html" class="btn-saiba-mais">Ver Preparatório →</a>
                 </div>
+
                 <div class="curso-card">
-                    <h3>Ensino Médio</h3>
-                    <p><strong> Técnico em Desenvolvimento de Sistemas:</strong> Foco em lógica, programação web, mobile e banco de dados.</p>
+                    <h3>Médio Técnico (T.I.)</h3>
+                    <p><strong>Desenvolvimento de Sistemas:</strong> Formação técnica completa com foco em lógica e programação.</p>
+                    <a href="tecnico.html" class="btn-saiba-mais">Explorar Tecnologia →</a>
                 </div>
             </div>
         </div>
@@ -62,15 +68,16 @@
     <section id="noticias">
         <h2>Últimas Notícias</h2>
         <article>
-            <p><strong>15/03/2026:</strong> Período de transferências aberto. Agende sua visita!</p>
+            <p><strong>15/03/2026:</strong> Período de transferências aberto. Agende sua visita pedagógica!</p>
             <hr>
-            <p><strong>10/03/2026:</strong> Workshop de Robótica: alunos apresentam protótipos sustentáveis.</p>
+            <p><strong>10/03/2026:</strong> Workshop de Robótica: alunos do Técnico apresentam protótipos em JS.</p>
         </article>
     </section>
 
     <section id="contato">
-        <h2>Entre em Contato</h2>
-        <p>Fale com nossa secretaria para mais informações.</p>
+        <h2 style="text-align: center;">Entre em Contato</h2>
+        <p style="text-align: center;">Fale com nossa secretaria para mais informações sobre matrículas e mensalidades.</p>
+        
         <form id="contactForm">
             <input type="text" id="nome" placeholder="Seu Nome Completo" required>
             <input type="email" id="email" placeholder="Seu Melhor E-mail" required>
@@ -84,5 +91,6 @@
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
