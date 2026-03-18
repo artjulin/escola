@@ -11,7 +11,7 @@ body {
 header {
     background-color: #007bff;
     color: white;
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
 }
 
@@ -58,35 +58,65 @@ section {
 #cursos-container {
     background-color: #f4f4f4;
     max-width: 100%;
+    text-align: center;
 }
 
 .max-width-wrapper {
     max-width: 1000px;
     margin: auto;
-    text-align: center;
 }
 
 /* Grid de Cursos */
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
 .curso-card {
     background: #fff;
     border: 1px solid #ddd;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: all 0.3s ease; /* Transição mais suave */
+    text-align: left; /* Alinhamento à esquerda para leitura profissional */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .curso-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    border-color: #007bff; /* A borda aparece apenas no hover para dar feedback */
+    transform: translateY(-8px);
+    border-color: #007bff;
 }
 
-/* Estilo para quando o botão está enviando */
-button:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-    opacity: 0.8;
+/* Etiquetas e Botões nos Cards */
+.tag-etapa {
+    display: inline-block;
+    background-color: #e7f3ff;
+    color: #007bff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.btn-saiba-mais {
+    display: inline-block;
+    margin-top: auto; /* Joga o link para o final do card */
+    padding-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.btn-saiba-mais:hover {
+    transform: translateX(5px);
 }
 
 /* Imagens */
@@ -94,10 +124,10 @@ button:disabled {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Formulário */
+/* Formulário de Contato */
 form {
     display: flex;
     flex-direction: column;
@@ -107,8 +137,8 @@ form {
 }
 
 input, textarea, button {
-    padding: 12px;
-    border-radius: 5px;
+    padding: 14px;
+    border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 16px;
 }
@@ -119,16 +149,30 @@ button {
     border: none;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
+button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Rodapé */
 footer {
     background-color: #333;
     color: white;
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
 }
