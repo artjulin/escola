@@ -1,60 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Lógica do Formulário (se estiver na Home)
     const contactForm = document.getElementById('contactForm');
-    const btnEnviar = document.getElementById('btnEnviar');
+    if (contactForm) {
+        contactForm.addEventListener('submit', lidarComEnvio);
+    }
 
-    // Função para validar e-mail simples
-    const isEmailValid = (email) => {
-        return email.includes('@') && email.includes('.');
-    };
+    // 2. Efeito Typewriter (se estiver na página do Técnico)
+    const titulo = document.getElementById('titulo-tecnico');
+    if (titulo) {
+        const textoOriginal = titulo.innerText;
+        titulo.innerText = '';
+        let i = 0;
 
-    contactForm.addEventListener('submit', function(e) {
+        function digitar() {
+            if (i < textoOriginal.length) {
+                titulo.innerText += textoOriginal.charAt(i);
+                i++;
+                setTimeout(digitar, 50);
+            }
+        }
+        digitar();
+    }
+
+    // 3. Funções Auxiliares
+    function lidarComEnvio(e) {
         e.preventDefault();
-        
-        // Captura e limpa os valores (trim remove espaços vazios no início/fim)
-        const dados = {
-            nome: document.getElementById('nome').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            mensagem: document.getElementById('mensagem').value.trim()
-        };
+        const btn = document.getElementById('btnEnviar');
+        const email = document.getElementById('email').value;
 
-        // Validações de segurança e UX
-        if (dados.nome.length < 3) {
-            alert('Por favor, insira um nome válido (mínimo 3 caracteres).');
-            document.getElementById('nome').focus();
+        if (!validarEmail(email)) {
+            alert("Por favor, use um formato de e-mail válido.");
             return;
         }
 
-        if (!isEmailValid(dados.email)) {
-            alert('Por favor, insira um e-mail válido.');
-            document.getElementById('email').focus();
-            return;
-        }
-
-        // Início do estado de "Enviando"
-        setLoadingState(true);
-
-        // Simulação de uma requisição para servidor (API)
-        console.log("Enviando dados para o servidor...", dados);
+        btn.disabled = true;
+        btn.innerHTML = "Processando...";
 
         setTimeout(() => {
-            // Sucesso
-            alert(`Sucesso! Olá ${dados.nome}, sua mensagem foi enviada. Responderemos em breve no e-mail: ${dados.email}`);
-            
+            alert("Solicitação enviada! Nossa equipe técnica/pedagógica entrará em contato.");
             contactForm.reset();
-            setLoadingState(false);
+            btn.disabled = false;
+            btn.innerHTML = "Enviar Mensagem";
         }, 2000);
-    });
+    }
 
-    // Função auxiliar para mudar o estado do botão
-    function setLoadingState(isLoading) {
-        if (isLoading) {
-            btnEnviar.disabled = true;
-            btnEnviar.innerHTML = '<span>⌛ Enviando...</span>';
-            btnEnviar.style.transform = 'scale(0.98)';
-        } else {
-            btnEnviar.disabled = false;
-            btnEnviar.innerHTML = 'Enviar Mensagem';
-            btnEnviar.style.transform = 'scale(1)';
-        }
+    function validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
     }
 });
