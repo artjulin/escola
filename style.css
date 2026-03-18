@@ -1,11 +1,14 @@
-/* Configurações Gerais */
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E RESET
+   ========================================================================== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     color: #333;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links */
+    background-color: #ffffff;
 }
 
 header {
@@ -15,14 +18,21 @@ header {
     text-align: center;
 }
 
-/* Navegação */
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* ==========================================================================
+   NAVEGAÇÃO (STICKY MENU)
+   ========================================================================== */
 nav {
     background-color: #f8f9fa;
     padding: 15px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 nav ul {
@@ -33,7 +43,7 @@ nav ul {
 }
 
 nav li {
-    display: inline;
+    display: inline-block;
     margin: 0 15px;
 }
 
@@ -41,114 +51,152 @@ nav a {
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
-    transition: color 0.3s;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
     color: #0056b3;
 }
 
-/* Seções */
+/* ==========================================================================
+   SEÇÕES E LAYOUT
+   ========================================================================== */
 section {
-    padding: 60px 20px;
-    max-width: 1000px;
+    padding: 80px 20px;
+    max-width: 1100px;
     margin: auto;
 }
 
 #cursos-container {
-    background-color: #f4f4f4;
+    background-color: #f4f7f6;
     max-width: 100%;
-    text-align: center;
 }
 
 .max-width-wrapper {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
+    text-align: center;
 }
 
-/* Grid de Cursos */
+/* ==========================================================================
+   GRID DE CURSOS E CARDS
+   ========================================================================== */
 .cursos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .curso-card {
     background: #fff;
-    border: 1px solid #ddd;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: left; /* Alinhamento à esquerda para leitura profissional */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.3s, border-color 0.3s;
+    border: 1px solid #eee;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
     flex-direction: column;
 }
 
 .curso-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     border-color: #007bff;
 }
 
-/* Etiquetas e Botões nos Cards */
+/* Etiqueta de identificação (Ex: 6º ao 9º ano) */
 .tag-etapa {
     display: inline-block;
     background-color: #e7f3ff;
     color: #007bff;
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 4px 12px;
-    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 50px;
     margin-bottom: 15px;
     text-transform: uppercase;
+    letter-spacing: 1px;
     width: fit-content;
 }
 
+.curso-card h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+}
+
 .btn-saiba-mais {
-    display: inline-block;
-    margin-top: auto; /* Joga o link para o final do card */
-    padding-top: 15px;
+    margin-top: auto;
+    padding-top: 20px;
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    transition: gap 0.3s;
 }
 
 .btn-saiba-mais:hover {
-    transform: translateX(5px);
+    color: #0056b3;
+    text-decoration: underline;
 }
 
-/* Imagens */
+/* ==========================================================================
+   ANIMAÇÃO TYPEWRITER (CURSOR DE PROGRAMADOR)
+   ========================================================================== */
+#titulo-tecnico::after {
+    content: '|';
+    margin-left: 5px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   FORMULÁRIO E COMPONENTES
+   ========================================================================== */
 .img-container img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* Formulário de Contato */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 500px;
-    margin: 30px auto;
+    max-width: 550px;
+    margin: 40px auto;
 }
 
-input, textarea, button {
-    padding: 14px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
+input, textarea {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
 }
 
 button {
     background-color: #007bff;
     color: white;
+    padding: 16px;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1rem;
     transition: background 0.3s, transform 0.2s;
 }
 
@@ -156,23 +204,32 @@ button:hover {
     background-color: #0056b3;
 }
 
-button:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
+button:active {
+    transform: scale(0.98);
 }
 
-/* Rodapé */
+/* ==========================================================================
+   FOOTER E RESPONSIVIDADE
+   ========================================================================== */
 footer {
-    background-color: #333;
-    color: white;
-    padding: 30px 20px;
+    background-color: #222;
+    color: #999;
+    padding: 40px 20px;
     text-align: center;
+    font-size: 0.9rem;
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-    nav li {
+@media (max-width: 768px) {
+    nav ul li {
         display: block;
         margin: 10px 0;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    section {
+        padding: 50px 20px;
     }
 }
